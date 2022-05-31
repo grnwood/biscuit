@@ -1,0 +1,13 @@
+{
+    "name": "biscuit",
+    "version": "1.0.0",
+    "description": "Cache warming ... my biscuits are burning...",
+    "main": "biscuit.js",
+    "dependencies": {
+        "sitemapper": "3.2.2",
+        "nettime": "4.0.0",
+        "chalk": "^5.0.1",
+        "commander": "^9.3.0",
+        "colors": "1.4.0"
+    }
+}
