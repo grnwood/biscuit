@@ -36,6 +36,8 @@ process.argv.forEach(function (value,index) {
     }
     if (value.indexOf('randomize') >=0) {
         random = true
+        console.error("!  Randomize not implemented yet")
+        process.exit(1)
     }
     if (value.indexOf('--user') >=0) {
         splitval = value.split('=')
@@ -76,7 +78,7 @@ sitemapper.fetch(siteToCrawl).then(function (sites) {
     if (limit) {
         console.log(String("\t\t ! Limiting urls to "+limit+ ' URLs').magenta)
     }
-    
+
     if (random) {
         console.log('\t\t ! Randomizing sitemap URLs'.magenta);
     }
@@ -87,12 +89,13 @@ sitemapper.fetch(siteToCrawl).then(function (sites) {
     }
 
     console.log(String("\t\t ! Site has " + sites.sites.length + " urls to warm up ...").cyan)
-    if (limit < sites.sites.length) {
+    if ( limit > 0 && limit < sites.sites.length) {
         // just grab limit for now
         toWorkOn = sites.sites.slice(0,limit)
         processedTotal = limit
         console.log(String("! \t\t\t Limiting to "+limit+" crawls").red)
     } else {
+        toWorkOn = sites.sites
         processedTotal = sites.sites.length
     }
     
@@ -100,8 +103,10 @@ sitemapper.fetch(siteToCrawl).then(function (sites) {
     toWorkOn.forEach(function(item, index) {
         process.stdout.write("#")
         credentials = {username: user, password: password}
+
+        console.log("*")
         nettime({url: item, followRedirects: true, timeout: 15000, 
-            credentials: credentials, requestDelay: 5000, requestCount: 5}).then(result => {
+            credentials: credentials}).then(result => {
             processResult(item, result)  
         })
         .catch(error =>  { 
