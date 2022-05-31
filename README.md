@@ -17,9 +17,9 @@ optional:
  
 ## Sample output
 
-C:\Program Files\nodejs\node.exe .\biscuit.js https://new.dooney.com/sitemap_index.xml --limit=50 --randomize --user=storefront --password=Handbags123
+C:\Program Files\nodejs\node.exe .\biscuit.js https://site.com/sitemap_index.xml --limit=50 --randomize --user=storefront --password=password123
 
-! Parsing sitemap https://new.dooney.com/sitemap_index.xml
+! Parsing sitemap https://site.com/sitemap_index.xml
 
 node_modules/sitemapper/lib/assets/sitemapper.js:1
 		 ! Limiting urls to 50 URLs
@@ -32,4 +32,4 @@ node_modules/sitemapper/lib/assets/sitemapper.js:1
 ! biscuit is done.
 	 TOTAL wt: 68312.388  (1394.130 avg ms)	 Processed Count: 50
 ! 			 Of 50 there were 6 errors. 12% error rate
-! https://new.dooney.com/pebble-grain-bitsy-bag-R322.html	 (200/OK)
+! https://site.com/handbag-R322.html	 (200/OK)
