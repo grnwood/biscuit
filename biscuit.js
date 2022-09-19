@@ -1,3 +1,8 @@
+/**
+ * biscuit.js
+ * 
+ * author: joe greenwood (joe.greenwood@capgemini.com)
+ */
 const Sitemapper = require('sitemapper')
 const http = require('http')
 const { nettime, getDuration } = require('nettime')
@@ -84,7 +89,7 @@ const sitemapper = new Sitemapper({
 });
 
 sitemapper.fetch(siteToCrawl).then(function (sites) {
-
+    urls = []
     if (filename) {
         urls = getExtraUrls(filename)
         console.log(String('\t\t ! Adding ' + urls.length + ' extra urls from ' + filename).magenta)
